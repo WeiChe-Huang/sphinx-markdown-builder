@@ -443,8 +443,13 @@ class Translator(nodes.NodeVisitor):
         raise nodes.SkipNode
 
     def visit_definition(self, node):
-        self.add('\n\n')
-        self.start_level('    ')
+
+        if isinstance(node, nodes.definition):
+            self.add('\n\n')
+            self.start_level('        ')
+        else:
+            self.add('\n\n')
+            self.start_level('    ')
 
     def depart_definition(self, node):
         self.finish_level()
