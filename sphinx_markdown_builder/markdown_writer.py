@@ -146,6 +146,13 @@ class MarkdownTranslator(Translator):
     #       field_name (e.g 'returns/parameters/raises')
     #
 
+    def visit_definition_list_item(self, node):
+        self.add('* ')
+        pass
+
+    def depart_definition_list_item(self, node):
+        pass
+
     def visit_classifier(self, node):
         self.add(' : ')
 
